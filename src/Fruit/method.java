@@ -122,26 +122,26 @@ public class method {
 
     public static void getPearsonCorrelation(int[] xData, int[] yData) {
         if (xData.length != yData.length)
-            throw new RuntimeException("数据不正确！");
+            throw new RuntimeException("Incorrect data！");
         double xMeans;
         double yMeans;
-        double numerator = 0;// 求解皮尔逊的分子
-        double denominator = 0;// 求解皮尔逊系数的分母
+        double numerator = 0;// Solve for Pearson's numerator
+        double denominator = 0;// Solve the denominator of the Pearson coefficient
 
         double result = 0;
-        // 拿到两个数据的平均值
+        // Get the average of the two data
         xMeans = getMeans(xData);
         yMeans = getMeans(yData);
-        // 计算皮尔逊系数的分子
+        // Calculate the numerator of the Pearson coefficient
         numerator = generateNumerator(xData, xMeans, yData, yMeans);
-        // 计算皮尔逊系数的分母
+        // Calculate the denominator of the Pearson coefficient
         denominator = generateDenomiator(xData, xMeans, yData, yMeans);
-        // 计算皮尔逊系数
+        // Calculate Pearson coefficient
         result = numerator / denominator;
         System.out.printf("The Pearson correlation is: %.2f\n ", result);
     }
 
-    //分子
+    //Numerator
     private static double generateNumerator(int[] xData, double xMeans, int[] yData, double yMeans) {
         double numerator = 0.0;
         for (int i = 0; i < xData.length; i++) {
@@ -150,7 +150,7 @@ public class method {
         return numerator;
     }
 
-    //分母
+    //Denominator
     private static double generateDenomiator(int[] xData, double xMeans, int[] yData, double yMeans) {
         double xSum = 0.0;
         for (int i = 0; i < xData.length; i++) {
@@ -163,7 +163,7 @@ public class method {
         return Math.sqrt(xSum) * Math.sqrt(ySum);
     }
 
-    //平均值
+    //average value
     private static double getMeans(int[] datas) {
         double sum = 0.0;
         for (int i = 0; i < datas.length; i++) {
